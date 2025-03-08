@@ -6,16 +6,25 @@ pipeline {
         }
     }
     stages {
-        stage('Clone Repository') {
-            steps {
-                git branch: 'master', url: 'https://github.com/mdchaus/simple-java-maven-app.git'
-            }
-        }
-    }
-     stages {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
+    }
 }
