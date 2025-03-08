@@ -1,11 +1,9 @@
 pipeline {
     agent {
-        environment {
-        MAVEN_OPTS = "-Dmaven.repo.local=/var/lib/jenkins/.m2/repository"
-    }
+        
         docker {
             image 'maven:3.9.5'
-            args '-v /root/.m2:/root/.m2'
+            args '-v /root/.m2:/root/'
         }
     }
     stages {
