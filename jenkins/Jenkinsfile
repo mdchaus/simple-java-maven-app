@@ -1,20 +1,20 @@
 pipeline {
     agent any
 
-    environment {
-        MAVEN_HOME = "/opt/maven"   // Adjust this path as per your system
-        JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"  // Adjust for Java version
-    }
+    //environment {
+    //    MAVEN_HOME = "/opt/maven"   // Adjust this path as per your system
+    //    JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"  // Adjust for Java version
+    //}
 
-    tools {
-        maven 'Maven 3'  // Ensure Maven is configured in Jenkins
-        jdk 'JDK 17'     // Ensure Java is configured in Jenkins
-    }
+    //tools {
+    //    maven 'Maven 3'  // Ensure Maven is configured in Jenkins
+    //    jdk 'JDK 17'     // Ensure Java is configured in Jenkins
+    //}
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-repo/java-maven-project.git'
+                git branch: 'master', url: 'https://github.com/mdchaus/HelloWorldRepository.git'
             }
         }
 
