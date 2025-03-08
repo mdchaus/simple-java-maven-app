@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent any {
     tools {
         git 'Git'  // Use the configured Git tool name
     }
-
+    }
     stages {
         stage('Clone Repository') {
             steps {
